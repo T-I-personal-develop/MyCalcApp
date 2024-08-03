@@ -15,17 +15,26 @@ namespace MyCalcApp.Categories
         /// <summary>
         /// コマンドタイプ大項目
         /// </summary>
-        public enum EnumCommandType
+        public enum EnumCommandType1
         {
             Num,        //数値
-            Add,    //＋
-            Substract,//―
-            Multiply,//×
-            Divide,//÷
+            Calc,       //演算子
             ClearAll,   //全てクリア
             ClearEntry, //入力クリア
             Equal,      //計算
         }
-    
+
+        /// <summary>
+        /// コマンドタイプ小項目
+        /// </summary>
+        public enum EnumCommandType2
+        {
+            Other,　//演算子でない場合
+            Add,    //＋
+            Substract,//―
+            Multiply,//×
+            Divide,//÷
+
+        }
     }
 }
