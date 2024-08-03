@@ -79,6 +79,57 @@ namespace MyCalcApp.Libraries
 
             return defaultValue;
         }
- 
+
+        /// <summary>
+        /// 空のファイルを作成
+        /// </summary>
+        /// <param name="path">出力ファイルのパス</param>
+        /// <param name="enc">Encoding</param>
+        /// <exception cref="Exception"></exception>
+        public static void WriteEmptyFile(string path, System.Text.Encoding enc)
+        {
+            try
+            {
+                if (!File.Exists(path))
+                {
+                    using (var streamWriter = new StreamWriter(path, false, enc))
+                    {
+                        // エンコードを指定して空のファイルを作成
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message, ex);
+            }
+        }
+
+
+        /// <summary>
+        /// 文字列をファイルに書き込む
+        /// </summary>
+        /// <param name="path">出力ファイルのパス</param>
+        /// <param name="text">書き込む文字列</param>
+        /// <param name="enc">Encoding</param>
+        /// <param name="append">true:追加、false:新規</param>
+        /// <exception cref="Exception"></exception>
+        public static void WriteTxt(string path, string text, bool append, System.Text.Encoding enc)
+        {
+
+            try
+            {
+                if (File.Exists(path))
+                {
+                    using (var streamWriter = new StreamWriter(path, append, enc))
+                    {
+                        streamWriter.WriteLine(text);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message, ex);
+            }
+        }
     }
 }
