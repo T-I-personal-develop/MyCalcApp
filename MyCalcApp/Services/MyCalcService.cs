@@ -1,16 +1,9 @@
 ﻿using MyCalcApp.Compornents;
 using MyCalcApp.Libraries;
 using MyCalcApp.Models.Data;
-using MyCalcApp.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static MyCalcApp.Categories.MyCategory;
 using MyCalcApp.Calc.Interfaces;
 using MyCalcApp.Calc;
-using System.Windows.Input;
 
 namespace MyCalcApp.Services
 {
@@ -98,6 +91,11 @@ namespace MyCalcApp.Services
                         break;
                     case EnumCommandType1.Equal:
                         //計算処理
+
+#warning Windows標準の電卓で8*9*=5184とでるが、この8*9*=0となる　この差異の解消を実装できませんでした。確認後適切な処理の実装をお願いします。　
+#warning 数値が巨大になった場合、エラーで落ちませんが、途中から0を返します。確認後適切な処理の実装をお願いします。
+#warning =を連打した場合の処理のケアができていません（現状は9×8=72=0=0=0となります）確認後適切な処理の実装をお願いします。
+ 
                         var decResult = Calculate();
                         Display += $"={decResult.ToString("#,##0.#####")}";
                         ClearAll();
@@ -281,6 +279,9 @@ namespace MyCalcApp.Services
                 {
                     decRevResult = Common.ConvToDecimal(data.PrevValue, 0);
                     decNextResult = Common.ConvToDecimal(data.NextValue, 0);
+
+#warning Displayの設定処理の対応に課題があります。確認後適切な処理の実装をお願いします。
+#warning (①#,##0.#####とすると、9押下で90となる、②#,###.#####とすると0.押下の場合1桁目の0が省かれる。①は明らかにNGなので②の設定を優先しています。)
 
                     strDisplay += decRevResult.ToString("#,###.#####")
                         + data.Operation.GetDisplayName()

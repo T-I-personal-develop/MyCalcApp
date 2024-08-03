@@ -17,7 +17,6 @@ namespace MyCalcApp.Libraries
     public class MyLog
     {
         private static string logFilePath = "";
-        private readonly object lockObject = new object();
 
         public static void StartMyLog()
         {

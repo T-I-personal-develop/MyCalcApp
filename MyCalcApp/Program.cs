@@ -23,7 +23,7 @@ namespace MyCalcApp
                 // 二重起動をチェック
                 if (!createdNew)
                 {
-                    MyLog.Info($"２重起動処理中止 ");
+                    MyLog.Error($"２重起動処理中止 ");
                     return;
                 }
 
@@ -48,6 +48,5 @@ namespace MyCalcApp
                 }
             }
         }
-
     }
 }

@@ -1,18 +1,9 @@
-﻿using MyCalcApp.Libraries;
-using MyCalcApp.Models.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MyCalcApp.Models.Data;
 using MyCalcApp.Calc.Interfaces;
 using static MyCalcApp.Categories.MyCategory;
 
 namespace MyCalcApp.Calc
 {
-
-
-
     /// <summary>
     /// 計算結果クラス
     /// </summary>
@@ -45,18 +36,22 @@ namespace MyCalcApp.Calc
                 switch (data.Operation)
                 {
                     case EnumCommandType2.Add:
+                        // +の場合
                         calcCommand = new CalcAdd(data.PrevValue, data.NextValue);
                         decResult += calcCommand.Execute();
                         break;
                     case EnumCommandType2.Substract:
+                        // -の場合
                         calcCommand = new CalcSubstract(data.PrevValue, data.NextValue);
                         decResult += calcCommand.Execute();
                         break;
                     case EnumCommandType2.Multiply:
+                        // *の場合
                         calcCommand = new CalcMultiply(data.PrevValue, data.NextValue);
                         decResult += calcCommand.Execute();
                         break;
                     case EnumCommandType2.Divide:
+                        // (/)の場合
                         calcCommand = new CalcDivide(data.PrevValue, data.NextValue);
                         decResult += calcCommand.Execute();
                         break;

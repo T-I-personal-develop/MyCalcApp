@@ -13,6 +13,11 @@ namespace MyCalcApp
             _clsMain = new MyCalcService();
             ButtonClickMain();
         }
+
+        /// <summary>
+        /// メインボタンクリックイベント
+        /// </summary>
+        /// <exception cref="Exception"></exception>
         private void ButtonClickMain()
         {
             try
@@ -29,6 +34,12 @@ namespace MyCalcApp
             }
         }
 
+        /// <summary>
+        /// 個々のボタンにクリックイベントハンドラを追加する
+        /// </summary>
+        /// <param name="button"></param>
+        /// <exception cref="Exception"></exception>
+
         private void ButtonClickSub(MyCalcButton button)
         {
             try
@@ -41,6 +52,12 @@ namespace MyCalcApp
             }
         }
 
+        /// <summary>
+        /// ボタンクリック時に実行される処理
+        /// </summary>
+        /// <param name="button"></param>
+        /// <param name="e"></param>
+        /// <exception cref="Exception"></exception>
         private void Button_Click(MyCalcButton button, EventArgs e)
         {
             try

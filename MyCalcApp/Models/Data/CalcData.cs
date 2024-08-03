@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static MyCalcApp.Categories.MyCategory;
+﻿using static MyCalcApp.Categories.MyCategory;
 
 namespace MyCalcApp.Models.Data
 {
