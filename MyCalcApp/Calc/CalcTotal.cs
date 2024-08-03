@@ -36,6 +36,11 @@ namespace MyCalcApp.Calc
 
             foreach (var data in _calcDatas)
             {
+                if (string.IsNullOrEmpty(data.PrevValue))
+                {
+                    //前の項の入力がない場合:今までの処理結果をitem.PrevValueに設定
+                    data.PrevValue = decResult.ToString();
+                }
                 switch (data.Operation)
                 {
                     case EnumCommandType2.Add:
