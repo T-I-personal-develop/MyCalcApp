@@ -99,7 +99,7 @@ namespace MyCalcApp.Services
                     case EnumCommandType1.Equal:
                         //計算処理
                         var decResult = Calculate();
-                        Display += $"={decResult.ToString()}";
+                        Display += $"={decResult.ToString("#,##0.#####")}";
                         MyLog.Info($"計算: {button?.Display ?? ""} Display: {Display}");
                         MyLog.Info($"計算結果: {decResult.ToString()} ");
                         break;
@@ -108,6 +108,8 @@ namespace MyCalcApp.Services
                         SetOperation(button);
                         Display = GetDisplay();
                         MyLog.Info($"演算子: {button?.Display ?? ""}, Display: {Display}");
+                        break;
+                    default:
                         MyLog.Error($"想定外の操作");
                         break;
                 }
@@ -279,9 +281,9 @@ namespace MyCalcApp.Services
                     decRevResult = Common.ConvToDecimal(data.PrevValue, 0);
                     decNextResult = Common.ConvToDecimal(data.NextValue, 0);
 
-                    strDisplay += decRevResult.ToString()
+                    strDisplay += decRevResult.ToString("#,###.#####")
                         + data.Operation.GetDisplayName()
-                        + decNextResult.ToString();
+                        + decNextResult.ToString("#,###.#####");
                 }
 
                 return strDisplay;
