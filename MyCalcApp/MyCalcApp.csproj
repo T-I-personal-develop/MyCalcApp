@@ -8,4 +8,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Libraries\" />
+    <Folder Include="Compornents\" />
+  </ItemGroup>
+
 </Project>
