@@ -40,6 +40,7 @@ namespace MyCalcApp.Calc
                 {
                     //前の項の入力がない場合:今までの処理結果をitem.PrevValueに設定
                     data.PrevValue = decResult.ToString();
+                    decResult = 0;
                 }
                 switch (data.Operation)
                 {
