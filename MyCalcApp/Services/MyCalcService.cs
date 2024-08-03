@@ -82,31 +82,39 @@ namespace MyCalcApp.Services
                         //数値
                         SetNum(button);
                         Display = GetDisplay();
+                        MyLog.Info($"数値: {button?.Display ?? ""}, Display: {Display}");
                         break;
                     case EnumCommandType1.ClearEntry:
                         //入力クリア
                         ClearEntry();
                         Display = GetDisplay();
+                        MyLog.Info("入力クリア");
                         break;
                     case EnumCommandType1.ClearAll:
                         //全てクリア
                         ClearAll();
                         Display = "";
+                        MyLog.Info("全てクリア");
                         break;
                     case EnumCommandType1.Equal:
                         //計算処理
                         var decResult = Calculate();
                         Display += $"={decResult.ToString()}";
+                        MyLog.Info($"計算: {button?.Display ?? ""} Display: {Display}");
+                        MyLog.Info($"計算結果: {decResult.ToString()} ");
                         break;
                     case EnumCommandType1.Calc:
                         //演算子
                         SetOperation(button);
                         Display = GetDisplay();
+                        MyLog.Info($"演算子: {button?.Display ?? ""}, Display: {Display}");
+                        MyLog.Error($"想定外の操作");
                         break;
                 }
             }
             catch (Exception ex)
             {
+                MyLog.Error($"システムエラー: {ex.Message}, 詳細: {ex.StackTrace}");
                 throw new Exception(ex.Message, ex);
             }
         }
@@ -149,6 +157,7 @@ namespace MyCalcApp.Services
             }
             catch (Exception ex)
             {
+                MyLog.Error($"システムエラー: {ex.Message}, 詳細: {ex.StackTrace}");
                 throw new Exception(ex.Message, ex);
             }
         }
@@ -190,6 +199,7 @@ namespace MyCalcApp.Services
             }
             catch (Exception ex)
             {
+                MyLog.Error($"システムエラー: {ex.Message}, 詳細: {ex.StackTrace}");
                 throw new Exception(ex.Message, ex);
             }
         }
@@ -209,6 +219,7 @@ namespace MyCalcApp.Services
             }
             catch (Exception ex)
             {
+                MyLog.Error($"システムエラー: {ex.Message}, 詳細: {ex.StackTrace}");
                 throw new Exception(ex.Message, ex);
             }
         }
@@ -225,6 +236,7 @@ namespace MyCalcApp.Services
             }
             catch (Exception ex)
             {
+                MyLog.Error($"システムエラー: {ex.Message}, 詳細: {ex.StackTrace}");
                 throw new Exception(ex.Message, ex);
             }
         }
@@ -244,6 +256,7 @@ namespace MyCalcApp.Services
             }
             catch (Exception ex)
             {
+                MyLog.Error($"システムエラー: {ex.Message}, 詳細: {ex.StackTrace}");
                 throw new Exception(ex.Message, ex);
             }
         }
@@ -275,6 +288,7 @@ namespace MyCalcApp.Services
             }
             catch (Exception ex)
             {
+                MyLog.Error($"システムエラー: {ex.Message}, 詳細: {ex.StackTrace}");
                 throw new Exception(ex.Message, ex);
             }
         }
