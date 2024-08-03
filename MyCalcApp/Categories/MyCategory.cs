@@ -30,9 +30,13 @@ namespace MyCalcApp.Categories
         public enum EnumCommandType2
         {
             Other,　//演算子でない場合
+            [Display(Name = "＋")]
             Add,    //＋
+            [Display(Name = "―")]
             Substract,//―
+            [Display(Name = "×")]
             Multiply,//×
+            [Display(Name = "÷")]
             Divide,//÷
 
         }

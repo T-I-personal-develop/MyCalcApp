@@ -6,5 +6,5 @@ namespace MyCalcApp
         {
             InitializeComponent();
         }
-    }
+      }
 }
