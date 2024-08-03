@@ -6,7 +6,7 @@ namespace MyCalcApp.Calc
     /// <summary>
     /// 除算クラス
     /// </summary>
-    internal class CalcDivide : ICalc
+    public class CalcDivide : ICalc
     {
         private readonly decimal _prevValue;　//前の項
         private readonly decimal _nextValue;   //次の項
@@ -20,6 +20,12 @@ namespace MyCalcApp.Calc
         {
             _prevValue = prevValue;
             _nextValue = nextValue;
+        }
+
+        public CalcDivide(string prevValue, string nextValue)
+        {
+            _prevValue = Common.ConvToDecimal(prevValue, 0);
+            _nextValue = Common.ConvToDecimal(nextValue, 0);
         }
 
         /// <summary>

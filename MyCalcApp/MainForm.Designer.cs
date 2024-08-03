@@ -272,10 +272,12 @@
             // lblDisplay
             // 
             lblDisplay.BorderStyle = BorderStyle.FixedSingle;
+            lblDisplay.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 128);
             lblDisplay.Location = new Point(21, 9);
             lblDisplay.Name = "lblDisplay";
             lblDisplay.Size = new Size(340, 40);
             lblDisplay.TabIndex = 21;
+            lblDisplay.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // btn7
             // 

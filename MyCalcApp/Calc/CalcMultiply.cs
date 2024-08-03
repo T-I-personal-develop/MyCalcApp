@@ -11,7 +11,7 @@ namespace MyCalcApp.Calc
     /// <summary>
     /// 乗算クラス
     /// </summary>
-    internal class CalcMultiply : ICalc
+    public class CalcMultiply : ICalc
     {
         private readonly decimal _prevValue;　//前の項
         private readonly decimal _nextValue;   //次の項
@@ -25,6 +25,12 @@ namespace MyCalcApp.Calc
         {
             _prevValue = prevValue;
             _nextValue = nextValue;
+        }
+
+        public CalcMultiply(string prevValue, string nextValue)
+        {
+            _prevValue = Common.ConvToDecimal(prevValue, 0);
+            _nextValue = Common.ConvToDecimal(nextValue, 0);
         }
 
         /// <summary>

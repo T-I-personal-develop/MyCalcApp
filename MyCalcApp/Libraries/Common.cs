@@ -131,5 +131,22 @@ namespace MyCalcApp.Libraries
                 throw new Exception(ex.Message, ex);
             }
         }
+
+        /// <summary>
+        /// Enum型のDisplay属性を返す
+        /// </summary>
+        /// <param name="enumValue">対象の値</param>
+        /// <returns></returns>
+        public static string GetDisplayName(this Enum enumValue)
+        {
+            var enumType = enumValue.GetType();
+            var enumName = enumValue.ToString();
+            var member = enumType.GetMember(enumName).FirstOrDefault();
+            var displayAttribute = member?.GetCustomAttribute<DisplayAttribute>();
+
+            // Display属性が設定されている場合、そのNameプロパティを返す。設定されていない場合はEmpty。
+            return displayAttribute?.Name ?? "";
+        }
+
     }
 }

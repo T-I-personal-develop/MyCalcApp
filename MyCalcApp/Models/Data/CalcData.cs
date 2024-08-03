@@ -12,9 +12,9 @@ namespace MyCalcApp.Models.Data
     /// </summary>
     public class CalcData
     {
-        public decimal PrevValue { get; set; } = 0;   //前の項
+        public string PrevValue { get; set; } = "";   //前の項
         public EnumCommandType2 Operation { get; set; } = EnumCommandType2.Other;  //演算子
-        public decimal NextValue { get; set; } = 0;   //次の項
+        public string NextValue { get; set; } = "";   //次の項
 
     }
 }

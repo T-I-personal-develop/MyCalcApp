@@ -11,7 +11,7 @@ namespace MyCalcApp.Calc
     /// <summary>
     /// 加算クラス
     /// </summary>
-    internal class CalcAdd : ICalc
+    public class CalcAdd : ICalc
     {
         private readonly decimal _prevValue;　//前の項
         private readonly decimal _nextValue;   //次の項
@@ -25,6 +25,12 @@ namespace MyCalcApp.Calc
         {
             _prevValue = prevValue;
             _nextValue = nextValue;
+        }
+
+        public CalcAdd(string prevValue, string nextValue)
+        {
+            _prevValue = Common.ConvToDecimal(prevValue, 0);
+            _nextValue = Common.ConvToDecimal(nextValue, 0);
         }
 
         /// <summary>
