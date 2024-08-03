@@ -100,6 +100,7 @@ namespace MyCalcApp.Services
                         //計算処理
                         var decResult = Calculate();
                         Display += $"={decResult.ToString("#,##0.#####")}";
+                        ClearAll();
                         MyLog.Info($"計算: {button?.Display ?? ""} Display: {Display}");
                         MyLog.Info($"計算結果: {decResult.ToString()} ");
                         break;
